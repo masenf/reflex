@@ -1,3 +1,17 @@
+## v0.9.8a1 (2026-07-30)
+
+### Features
+
+- Run plugins' staged `register_route` hooks once per app before page evaluation so plugins can contribute pages atomically, and invalidate the cached route resolver when a page is added after it was first built. ([#6728](https://github.com/reflex-dev/reflex/issues/6728))
+- `reflex deploy` now accepts `--provider` (deploy to Reflex Cloud or a GCP account connected to your organization) and `--description` (record an optional changelog note on the deployment, shown in `reflex cloud apps history`).
+
+### Bug Fixes
+
+- Fix `reflex component build` crashing with `AttributeError` on Python 3.10 and 3.11 by delegating recursive stub generation to the Python 3.10-compatible `PyiGenerator` scanner. ([#6760](https://github.com/reflex-dev/reflex/issues/6760))
+- Fixed `reflex rename` corrupting or failing on source files on non-UTF-8 platform locales while preserving declared Python source encodings and line endings. ([#6761](https://github.com/reflex-dev/reflex/issues/6761))
+- Fixed nested/subfolder stylesheets failing to load on Windows because the generated CSS `@import` used backslash path separators (which CSS treats as escape sequences); the import URL is now always POSIX-normalized. ([#6762](https://github.com/reflex-dev/reflex/issues/6762))
+
+
 ## v0.9.7 (2026-07-15)
 
 ### Features
