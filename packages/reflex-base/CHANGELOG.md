@@ -1,3 +1,16 @@
+## v0.9.8 (2026-07-31)
+
+### Features
+
+- Add a staged `Plugin.register_route` hook with `add_page` and `has_app_page` capabilities that runs once per app before its first compilation, and `rx.plugins.get_plugin()` to look up the configured plugin instance by type (raising `ConfigError` on ambiguous matches). ([#6728](https://github.com/reflex-dev/reflex/issues/6728))
+
+### Bug Fixes
+
+- Preserve runtime value types for unannotated `@rx.memo` component parameters. ([#6659](https://github.com/reflex-dev/reflex/issues/6659))
+- Drain queued same-token events during graceful event processor shutdown. ([#6791](https://github.com/reflex-dev/reflex/issues/6791))
+- Custom attributes on a `Field` are now carried onto the rebuilt field by reference instead of deep copy, so stateful callable markers keep their identity and markers holding non-copyable values (locks, clients) no longer crash state class creation. ([#6809](https://github.com/reflex-dev/reflex/issues/6809))
+
+
 ## v0.9.7 (2026-07-15)
 
 ### Deprecations
